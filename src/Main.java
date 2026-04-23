@@ -4,11 +4,10 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         int[] arr = new Random().ints(10, 0, 10).toArray();
-//        int[] arr = {1, 3, 3, 5, 5, 6, 7, 8, 9, 9};
-        int target = 5;
-//        int target = new Random().nextInt(0, 10);
+        int target = new Random().nextInt(0, 10);
 
-        Arrays.sort(arr);
+//        Arrays.sort(arr);
+        bubbleSort(arr);
 
         int resultLinearSearch = linearSearch(arr, target);
         int resultBinarySearch = binarySearch(arr, target);
@@ -49,5 +48,24 @@ public class Main {
             }
         }
         return -1;
+    }
+
+    private static void bubbleSort(int[] arr) {
+        System.out.println("Array before sorting : " + Arrays.toString(arr));
+        for (int i = 0; i < arr.length - 1; i++) {
+            boolean isSwapped = false;
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    isSwapped = true;
+                }
+            }
+            if (!isSwapped){
+                break;
+            }
+                System.out.println("Step number " + i + ": " + Arrays.toString(arr));
+        }
     }
 }
