@@ -9,8 +9,9 @@ public class Main {
 //        Arrays.sort(arr);
 //        bubbleSort(arr);
 
-        int[] arrStatic = {6, 5, 2, 8, 3,7};
-        selectionSort(arr);
+        int[] arrStatic = {5, 9, 7, 3, 6};
+        insertionSort(arr);
+//        selectionSort(arr);
 
         int resultLinearSearch = linearSearch(arr, target);
         int resultBinarySearch = binarySearch(arr, target);
@@ -93,5 +94,28 @@ public class Main {
             System.out.println("Step number " + i + ": " + Arrays.toString(arr));
         }
         System.out.println("The result is : " + Arrays.toString(arr));
+    }
+
+    private static void insertionSort(int[] arr) {
+        System.out.println("Array before sorting : " + Arrays.toString(arr));
+        //    i
+        //{6, 5, 2, 8, 3, 7};
+        // j
+        //   i
+        //{5 2 6 8 3 7}
+        // j
+        for (int i = 1; i <= arr.length - 1; i++) {
+            int lam =0;
+            for (int j = i-1; j != -1; j--) {
+                if (arr[j] > arr[i-lam]) {
+                    int temp = arr[i-lam];
+                    arr[i-lam] = arr[j];
+                    arr[j] = temp;
+                    System.out.println("Step number " + i + ": " + Arrays.toString(arr));
+                    lam+=1;
+                }
+
+            }
+        }
     }
 }
