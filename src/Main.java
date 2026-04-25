@@ -10,13 +10,14 @@ public class Main {
 //        bubbleSort(arr);
 
         int[] arrStatic = {5, 9, 7, 3, 6};
-        insertionSort(arr);
+//        insertionSort(arr);
 //        selectionSort(arr);
+        QuickSort.quickSort(arrStatic,0, arrStatic.length-1);
 
         int resultLinearSearch = linearSearch(arr, target);
         int resultBinarySearch = binarySearch(arr, target);
 
-        System.out.println("Array is  " + Arrays.toString(arr));
+        System.out.println("Array is  " + Arrays.toString(arrStatic));
         System.out.println("Target element is " + target);
 
         if (resultBinarySearch != -1) {
@@ -105,14 +106,14 @@ public class Main {
         //{5 2 6 8 3 7}
         // j
         for (int i = 1; i <= arr.length - 1; i++) {
-            int lam =0;
-            for (int j = i-1; j != -1; j--) {
-                if (arr[j] > arr[i-lam]) {
-                    int temp = arr[i-lam];
-                    arr[i-lam] = arr[j];
+            int lam = 0;
+            for (int j = i - 1; j != -1; j--) {
+                if (arr[j] > arr[i - lam]) {
+                    int temp = arr[i - lam];
+                    arr[i - lam] = arr[j];
                     arr[j] = temp;
                     System.out.println("Step number " + i + ": " + Arrays.toString(arr));
-                    lam+=1;
+                    lam += 1;
                 }
 
             }
