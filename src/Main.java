@@ -5,20 +5,11 @@ public class Main {
     public static void main(String[] args) {
         int[] arr = new Random().ints(5, 0, 10).toArray();
         int target = new Random().nextInt(0, 10);
-
-        System.out.println(Factorial.factorial(10));
-
-//        Arrays.sort(arr);
-//        bubbleSort(arr);
-
         int[] arrStatic = {5, 9, 7, 3, 6};
+
         System.out.println("Before Sorting   " + Arrays.toString(arrStatic));
 
         MergeSort.mergeSort(arrStatic, 0, arrStatic.length - 1);
-
-//        insertionSort(arr);
-//        selectionSort(arr);
-//        QuickSort.quickSort(arrStatic, 0, arrStatic.length - 1);
 
         int resultLinearSearch = linearSearch(arr, target);
         int resultBinarySearch = binarySearch(arr, target);

@@ -1,10 +1,7 @@
 public class MergeSort {
 
     public static void mergeSort(int[] arr, int left, int right) {
-//        5, 9, 7, 3, 6
 
-
-        //3, 5, 6, 3, 6
         if (left < right) {
             int mid = (left + right) / 2;
             mergeSort(arr, left, mid);
@@ -53,6 +50,4 @@ public class MergeSort {
         }
 
     }
-
-
 }
