@@ -1,8 +1,12 @@
 import linkedlist.LinkedList;
 import sort.MergeSort;
+import stack.Stack;
 
 import java.util.Arrays;
 import java.util.Random;
+
+//import java.util.Stack;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -16,15 +20,13 @@ public class Main {
 
         System.out.println("After sorting:  " + Arrays.toString(arrStatic));
 
-        LinkedList nums = new LinkedList();
-
-        nums.add(5);
-        nums.add(9);
-        nums.add(78);
-
-        nums.addFirst(1);
-        nums.delete(1);
-        nums.printValues();
+        Stack nums = new Stack();
+        nums.push(10);
+        nums.push(20);
+        nums.pop();
+        nums.push(30);
+        nums.push(40);
+        nums.printStack();
 
 
 
