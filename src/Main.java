@@ -1,6 +1,6 @@
-import linkedlist.LinkedList;
+
+import binaryTree.BinaryTree;
 import sort.MergeSort;
-import stack.Stack;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -20,16 +20,14 @@ public class Main {
 
         System.out.println("After sorting:  " + Arrays.toString(arrStatic));
 
-        Stack nums = new Stack();
-        nums.push(10);
-        nums.push(20);
-        nums.pop();
-        nums.push(30);
-        nums.push(40);
-        nums.printStack();
-
-
-
+        BinaryTree tree = new BinaryTree();
+        tree.insert(8);
+        tree.insert(7);
+        tree.insert(12);
+        tree.insert(15);
+        tree.insert(2);
+        tree.insert(5);
+        tree.inorder();
 
 
 
