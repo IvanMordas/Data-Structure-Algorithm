@@ -9,9 +9,13 @@ public class Main {
 
         LinkedList linkedList = new LinkedList(1);
         linkedList.append(2);
+        linkedList.append(3);
+        linkedList.append(4);
+        linkedList.append(5);
 
 
-        System.out.println(linkedList.hasLoop());
+        System.out.println(linkedList.findKthFromEnd(6).value);
+
 
 
 
