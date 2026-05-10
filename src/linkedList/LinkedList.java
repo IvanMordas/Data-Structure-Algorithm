@@ -1,4 +1,4 @@
-package linkedlist;
+package linkedList;
 
 public class LinkedList {
     private Node head;
@@ -185,8 +185,42 @@ public class LinkedList {
         head = newNode;
     }
 
+    public Node findMiddleNode() {
+        if (head == null) {
+            return null;
+        }
+
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
+    }
+
+    public boolean hasLoop() {
+        if (head == null) {
+            return false;
+        }
+
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public class Node {
-        int value;
+        public int value;
         Node next;
 
         public Node(int value) {

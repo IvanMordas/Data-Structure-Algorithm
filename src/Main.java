@@ -1,7 +1,4 @@
-import linkedlist.LinkedList;
-
-import java.util.Arrays;
-import java.util.List;
+import linkedList.LinkedList;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -11,13 +8,13 @@ public class Main {
 //        nums.forEach(System.out::println);
 
         LinkedList linkedList = new LinkedList(1);
-        linkedList.append(5);
-        linkedList.append(7);
-        linkedList.append(9);
-        linkedList.append(3);
+        linkedList.append(2);
 
-        System.out.println(linkedList.insert(1,2));
 
-        linkedList.printList();
+        System.out.println(linkedList.hasLoop());
+
+
+
+
     }
 }
