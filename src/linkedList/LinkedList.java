@@ -1,5 +1,8 @@
 package linkedList;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LinkedList {
     private Node head;
     private Node tail;
@@ -237,6 +240,43 @@ public class LinkedList {
         }
 
         return slow;
+    }
+
+    public void removeDuplicates() {
+        Node iNode = head;
+        Node jNode = head;
+        for (int i = 0; i < length - 1; i++) {
+            for (int j = 0; j <= length; j++) {
+                if (jNode.next == null) {
+                    break;
+                }
+                if (iNode.value == jNode.next.value) {
+                    Node temp = jNode.next;
+                    jNode.next = temp.next;
+                    temp.next = null;
+                    length--;
+                } else {
+                    jNode = jNode.next;
+                }
+            }
+            iNode = iNode.next;
+            jNode = iNode;
+        }
+    }
+
+    public void removeDuplicatesHashSet() {
+        Set<Node> set = new HashSet<>();
+
+        Node temp = head;
+        while (temp != null) {
+            System.out.println(temp.value);
+            set.add(temp);
+            temp = temp.next;
+        }
+
+        for (Node s : set) {
+            System.out.println(s.value + " -> ");
+        }
     }
 
     public class Node {
