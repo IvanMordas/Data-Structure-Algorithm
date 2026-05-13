@@ -279,6 +279,73 @@ public class LinkedList {
         }
     }
 
+    public int binaryToDecimal() {
+        int num = 0;
+        Node current = head;
+
+        while (current != null) {
+            num = num * 2 + current.value;
+            current = current.next;
+        }
+
+        return num;
+    }
+
+    public void partitionList(int x) {
+        if (head == null) {
+            return;
+        }
+        Node D1 = new Node(0);//less
+        Node D2 = new Node(0);//equal and more
+
+        Node prev1 = D1;
+        Node prev2 = D2;
+
+        Node current = head;
+        while (current != null) {
+            if (current.value < x) {
+                prev1.next = current;
+                prev1 = current;
+                current = current.next;
+            } else {
+                prev2.next = current;
+                prev2 = current;
+                current = current.next;
+            }
+        }
+        prev2.next = null;
+
+        prev1.next = D2.next;
+        D2.next = null;
+
+        head = D1.next;
+        D1.next = null;
+    }
+
+    public void swapPairs() {
+        Node current = head;
+        Node prev = head;
+
+        if (head == null) {
+            return;
+        }
+
+        if (head.next != null) {
+            head = current.next;
+            current.next = head.next;
+            head.next = current;
+        }
+
+        while (current.next != null && current.next.next != null) {
+            current = current.next;
+            prev.next = current.next;
+            current.next = prev.next.next;
+            prev.next.next = current;
+            prev=prev.next.next;
+
+        }
+    }
+
     public class Node {
         public int value;
         Node next;

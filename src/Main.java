@@ -9,17 +9,19 @@ public class Main {
 
         //1 -> 2 -> 3 -> 1 -> 4 -> 2 -> 5
 
-
+        //3 -> 8 -> 5 -> 10 -> 2 -> 1 x: 5
 
         LinkedList linkedList = new LinkedList(1);
         linkedList.append(2);
-        linkedList.append(1);
         linkedList.append(3);
-        linkedList.append(2);
         linkedList.append(4);
+        linkedList.append(5);
+        linkedList.append(6);
+        linkedList.append(7);
 
 
-        linkedList.removeDuplicates();
+
+        linkedList.swapPairs();
 
         linkedList.printList();
 
