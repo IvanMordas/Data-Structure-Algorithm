@@ -89,7 +89,6 @@ public class LinkedList {
         temp.next = null;
         length--;
         return temp;
-
     }
 
     //create new node + add Node to beginning
