@@ -180,6 +180,24 @@ public class DoublyLinkedList {
         return temp;
     }
 
+    public boolean isPalindrome() {
+        if (length <= 1) {
+            return true;
+        }
+        Node toward = head;
+        Node backward = tail;
+
+        for (int i = 0; i < length / 2; i++) {
+            if (toward.value == backward.value) {
+                toward = toward.next;
+                backward = backward.prev;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public class Node {
         public int value;
         Node next;
