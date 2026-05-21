@@ -12,8 +12,9 @@ public class Main {
         myDLL.append(3);
         myDLL.append(4);
         myDLL.append(5);
+        myDLL.append(6);
 
-        System.out.println(myDLL.get(0).value);
+        myDLL.swapPairs();
         myDLL.printList();
     }
 }
