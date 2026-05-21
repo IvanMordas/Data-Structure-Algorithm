@@ -340,9 +340,36 @@ public class LinkedList {
             prev.next = current.next;
             current.next = prev.next.next;
             prev.next.next = current;
-            prev=prev.next.next;
+            prev = prev.next.next;
 
         }
+    }
+
+    public void reverseBetween(int startIndex, int endIndex) {
+        if (head == null) return;
+
+        // dummy node to simplify edge cases (e.g. startIndex = 0)
+        Node dummy = new Node(0);
+        dummy.next = head;
+        Node prev = dummy;
+
+        // Step 1 — move prev to node just before startIndex
+        for (int i = 0; i < startIndex; i++) {
+            prev = prev.next;
+        }
+
+        // Step 2 — current is the first node to reverse
+        Node current = prev.next;
+
+        // Step 3 — reverse between startIndex and endIndex
+        for (int i = 0; i < endIndex - startIndex; i++) {
+            Node nextNode = current.next;   // save next
+            current.next = nextNode.next;   // skip nextNode
+            nextNode.next = prev.next;      // nextNode points to front of reversed
+            prev.next = nextNode;           // prev points to nextNode
+        }
+
+        head = dummy.next;
     }
 
     public class Node {
