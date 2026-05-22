@@ -1,34 +1,38 @@
 package stack;
 
 public class Stack {
-    private int[] arr = new int[5];
-    int top = -1;
-    int size;
 
-    public Stack() {
-        size = arr.length;
-        top = -1;
-    }
+    private Node top;
+    private int height;
 
-    public void push(int data) {
-        top++;
-        if (top < size) {
-
-            arr[top] = data;
-        } else {
-            System.out.println("Stack Overflow");
-        }
-
-    }
-
-    public int pop() {
-        return arr[top--];
-
+    public Stack(int value) {
+        Node newNode = new Node(value);
+        top = newNode;
+        height = 1;
     }
 
     public void printStack() {
-        for (int n : arr) {
-            System.out.print(n + " ");
+        Node temp = top;
+        while (temp != null) {
+            System.out.print(temp.value);
+            temp = temp.next;
+        }
+    }
+
+    public void getTop() {
+        System.out.println("Top: " + top.value);
+    }
+
+    public void getHeight() {
+        System.out.println("Height: " + height);
+    }
+
+    class Node {
+        int value;
+        Node next;
+
+        private Node(int value) {
+            this.value = value;
         }
     }
 
