@@ -59,5 +59,4 @@ public class Stack {
             this.value = value;
         }
     }
-
 }
