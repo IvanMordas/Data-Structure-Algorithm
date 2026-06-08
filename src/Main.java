@@ -1,5 +1,4 @@
-import queue.Queue;
-import task.MyQueue;
+import hashtable.HashTable;
 import task.StackArrayList;
 
 
@@ -47,8 +46,8 @@ public class Main {
         while (tempInt != null) {
             tempInt = (Integer) stack.pop();
 
-            if (tempStack.peek()!=null &&tempInt != null&& tempInt < tempStack.peek()) {
-                while (tempStack.peek()!=null &&tempInt != null&& tempInt < tempStack.peek()) {
+            if (tempStack.peek() != null && tempInt != null && tempInt < tempStack.peek()) {
+                while (tempStack.peek() != null && tempInt != null && tempInt < tempStack.peek()) {
                     stack.push(tempStack.pop());
                 }
 
@@ -60,9 +59,9 @@ public class Main {
         }
 
         while (!tempStack.isEmpty()) {
-            if(tempStack.peek() != null){
+            if (tempStack.peek() != null) {
                 stack.push(tempStack.pop());
-            }else{
+            } else {
                 tempStack.pop();
             }
         }
@@ -74,14 +73,16 @@ public class Main {
 //        nums.stream().filter(n -> n >= 5).forEach(n -> System.out.print(n));
 //        nums.forEach(System.out::println);
 
-        Queue queue = new Queue(1);
-        queue.enqueue(2);
-        queue.enqueue(3);
+        HashTable hashTable = new HashTable();
 
-        MyQueue q = new MyQueue();
-        q.enqueue(1);
-        q.enqueue(2);
-        q.enqueue(3);
+        hashTable.set("nails", 100);
+        hashTable.set("tile", 50);
+        hashTable.set("lumber", 80);
+        hashTable.set("bolts", 200);
+        hashTable.set("screws", 140);
+        hashTable.printTable();
+        System.out.println(hashTable.keys());
+
 
     }
 }
