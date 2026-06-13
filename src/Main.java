@@ -1,8 +1,7 @@
 import task.StackArrayList;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class Main {
@@ -118,6 +117,23 @@ public class Main {
         }
     }
 
+    public static String sortString(String str) {
+        return Arrays.stream(str.split(""))
+                .sorted()
+                .collect(Collectors.joining());
+    }
+
+    public static List<List<String>> groupAnagrams(String[] strings) {
+        HashMap<String, List<String>> map = new HashMap<>();
+
+        for (String str : strings) {
+            String sortedString = sortString(str);
+            map.computeIfAbsent(sortedString, k -> new ArrayList<>()).add(str);
+        }
+
+        return new ArrayList<>(map.values());
+    }
+
     public static void main(String[] args) throws InterruptedException {
 //        List<Integer> nums = Arrays.asList(4, 5, 7, 2);
 //        StringBuffer sb = new StringBuffer("Java Code");
@@ -128,6 +144,8 @@ public class Main {
         int[] array2 = {1, 2, 3};
 //        System.out.println(itemInCommon(array1, array2));
         System.out.println(firstNonRepeatingChar("aabbcc"));
+        String[] inputStrings = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        System.out.println(groupAnagrams(inputStrings));
 
 
     }
