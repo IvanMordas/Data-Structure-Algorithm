@@ -134,18 +134,52 @@ public class Main {
         return new ArrayList<>(map.values());
     }
 
+    public static int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+
+            map.put(nums[i], i);
+        }
+
+        return new int[]{};
+    }
+
+    public static int[] subarraySum(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, -1);
+        int currentSum = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            currentSum += nums[i];
+            int complement = currentSum - target;
+
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement)+1, i};
+            }
+            map.put(currentSum, i);
+        }
+
+
+        return new int[]{};
+    }
+
     public static void main(String[] args) throws InterruptedException {
 //        List<Integer> nums = Arrays.asList(4, 5, 7, 2);
 //        StringBuffer sb = new StringBuffer("Java Code");
 //        nums.stream().filter(n -> n >= 5).forEach(n -> System.out.print(n));
 //        nums.forEach(System.out::println);
 
-        int[] array1 = {};
-        int[] array2 = {1, 2, 3};
+        int[] nums1 = {3, 4, -7, 5, 1};
+        int target1 = 5;
 //        System.out.println(itemInCommon(array1, array2));
-        System.out.println(firstNonRepeatingChar("aabbcc"));
-        String[] inputStrings = {"eat", "tea", "tan", "ate", "nat", "bat"};
-        System.out.println(groupAnagrams(inputStrings));
+        System.out.println(Arrays.toString(subarraySum(nums1, target1)));
 
 
     }
