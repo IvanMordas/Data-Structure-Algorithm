@@ -1,6 +1,7 @@
 package hashtable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class HashTable {
     private int size = 7;

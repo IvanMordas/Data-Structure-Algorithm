@@ -1,8 +1,26 @@
 import hashtable.HashTable;
 import task.StackArrayList;
 
+import java.util.HashMap;
+
 
 public class Main {
+
+    public static boolean itemInCommon(int[] array1, int[] array2) {
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < array1.length; i++) {
+            map.put(i, array1[i]);
+        }
+
+        for (int i : array2) {
+            if (map.containsValue(i)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static String reverseString(String str) {
         StackArrayList<Character> stackArrayList = new StackArrayList<>();
@@ -72,6 +90,11 @@ public class Main {
 //        StringBuffer sb = new StringBuffer("Java Code");
 //        nums.stream().filter(n -> n >= 5).forEach(n -> System.out.print(n));
 //        nums.forEach(System.out::println);
+
+        int[] array1 = {};
+        int[] array2 = {1, 2, 3};
+        System.out.println(itemInCommon(array1, array2));
+        System.out.println("************************************");
 
         HashTable hashTable = new HashTable();
 
