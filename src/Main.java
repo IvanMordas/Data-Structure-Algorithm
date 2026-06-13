@@ -1,7 +1,8 @@
-import hashtable.HashTable;
 import task.StackArrayList;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class Main {
@@ -20,6 +21,38 @@ public class Main {
             }
         }
         return false;
+    }
+
+    public static List<Integer> findDuplicates(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int i : nums) {
+            map.put(i, map.getOrDefault(i, 1) + 1);
+        }
+
+        return map.entrySet().stream()
+                .filter(x -> x.getValue() > 1)
+                .map(Map.Entry::getKey)
+                .toList();
+
+    }
+
+    public static Character firstNonRepeatingChar(String str) {
+        HashMap<Character, Integer> map = new HashMap<>();
+        if (str.isEmpty()) {
+            return null;
+        }
+        char[] chars = str.toCharArray();
+        for (Character c : chars) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+        for (Character c : chars) {
+            if (map.get(c).equals(1)) {
+                return c;
+            }
+        }
+        return null;
     }
 
     public static String reverseString(String str) {
@@ -93,18 +126,8 @@ public class Main {
 
         int[] array1 = {};
         int[] array2 = {1, 2, 3};
-        System.out.println(itemInCommon(array1, array2));
-        System.out.println("************************************");
-
-        HashTable hashTable = new HashTable();
-
-        hashTable.set("nails", 100);
-        hashTable.set("tile", 50);
-        hashTable.set("lumber", 80);
-        hashTable.set("bolts", 200);
-        hashTable.set("screws", 140);
-        hashTable.printTable();
-        System.out.println(hashTable.keys());
+//        System.out.println(itemInCommon(array1, array2));
+        System.out.println(firstNonRepeatingChar("aabbcc"));
 
 
     }
