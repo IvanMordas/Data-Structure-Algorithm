@@ -161,13 +161,42 @@ public class Main {
             int complement = currentSum - target;
 
             if (map.containsKey(complement)) {
-                return new int[]{map.get(complement)+1, i};
+                return new int[]{map.get(complement) + 1, i};
             }
             map.put(currentSum, i);
         }
-
-
         return new int[]{};
+    }
+
+    public static List<Integer> removeDuplicates(List<Integer> myList) {
+        Set<Integer> set = new HashSet<>(myList);
+        return new ArrayList<>(set);
+    }
+
+    public static boolean hasUniqueChars(String str) {
+        Set<Character> set = str.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.toCollection(HashSet::new));
+
+        return str.length() == set.size() ? true : false;
+    }
+
+
+    public static List<int[]> findPairs(int[] arr1, int[] arr2, int target) {
+
+        List<int[]> pairs = new ArrayList<>();
+
+        Set<Integer> set = Arrays.stream(arr1)
+                .boxed()
+                .collect(Collectors.toCollection(HashSet::new));
+
+        for (int i : arr2) {
+            int complement = target - i;
+            if (set.contains(complement)) {
+                pairs.add(new int[]{complement, i});
+            }
+        }
+        return pairs;
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -176,10 +205,10 @@ public class Main {
 //        nums.stream().filter(n -> n >= 5).forEach(n -> System.out.print(n));
 //        nums.forEach(System.out::println);
 
-        int[] nums1 = {3, 4, -7, 5, 1};
+        int[] nums1 = {1, 2, 2, 3, 3, 4};
         int target1 = 5;
 //        System.out.println(itemInCommon(array1, array2));
-        System.out.println(Arrays.toString(subarraySum(nums1, target1)));
+        System.out.println(removeDuplicates(List.of(8, 8, 8, 8)));
 
 
     }
