@@ -1,3 +1,4 @@
+import graph.Graph;
 import task.StackArrayList;
 
 import java.util.*;
@@ -181,7 +182,6 @@ public class Main {
         return str.length() == set.size() ? true : false;
     }
 
-
     public static List<int[]> findPairs(int[] arr1, int[] arr2, int target) {
 
         List<int[]> pairs = new ArrayList<>();
@@ -205,11 +205,17 @@ public class Main {
 //        nums.stream().filter(n -> n >= 5).forEach(n -> System.out.print(n));
 //        nums.forEach(System.out::println);
 
-        int[] nums1 = {1, 2, 2, 3, 3, 4};
-        int target1 = 5;
-//        System.out.println(itemInCommon(array1, array2));
-        System.out.println(removeDuplicates(List.of(8, 8, 8, 8)));
+        Graph myGraph = new Graph();
+        myGraph.addVertex("A");
+        myGraph.addVertex("B");
+        myGraph.addVertex("C");
 
+        myGraph.addEdge("A", "B");
+        myGraph.addEdge("A", "C");
+        myGraph.addEdge("B", "C");
 
+        myGraph.removeVertex("C");
+
+        myGraph.printGraph();
     }
 }
