@@ -1,4 +1,5 @@
 import graph.Graph;
+import heap.Heap;
 import task.StackArrayList;
 
 import java.util.*;
@@ -204,18 +205,18 @@ public class Main {
 //        StringBuffer sb = new StringBuffer("Java Code");
 //        nums.stream().filter(n -> n >= 5).forEach(n -> System.out.print(n));
 //        nums.forEach(System.out::println);
+        Heap myHeap = new Heap();
+        myHeap.insert(95);
+        myHeap.insert(75);
+        myHeap.insert(80);
+        myHeap.insert(55);
+        myHeap.insert(60);
+        myHeap.insert(50);
+        myHeap.insert(65);
 
-        Graph myGraph = new Graph();
-        myGraph.addVertex("A");
-        myGraph.addVertex("B");
-        myGraph.addVertex("C");
+        System.out.println(myHeap.getHeap());
 
-        myGraph.addEdge("A", "B");
-        myGraph.addEdge("A", "C");
-        myGraph.addEdge("B", "C");
-
-        myGraph.removeVertex("C");
-
-        myGraph.printGraph();
+        myHeap.remove();
+        System.out.println(myHeap.getHeap());
     }
 }
