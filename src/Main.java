@@ -1,6 +1,5 @@
-import graph.Graph;
-import heap.Heap;
 import task.StackArrayList;
+import tree.BinarySearchTree;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -200,23 +199,33 @@ public class Main {
         return pairs;
     }
 
+    public static int factorial(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return n * factorial(n - 1);
+    }
+
     public static void main(String[] args) throws InterruptedException {
 //        List<Integer> nums = Arrays.asList(4, 5, 7, 2);
 //        StringBuffer sb = new StringBuffer("Java Code");
 //        nums.stream().filter(n -> n >= 5).forEach(n -> System.out.print(n));
 //        nums.forEach(System.out::println);
-        Heap myHeap = new Heap();
-        myHeap.insert(95);
-        myHeap.insert(75);
-        myHeap.insert(80);
-        myHeap.insert(55);
-        myHeap.insert(60);
-        myHeap.insert(50);
-        myHeap.insert(65);
 
-        System.out.println(myHeap.getHeap());
 
-        myHeap.remove();
-        System.out.println(myHeap.getHeap());
+        BinarySearchTree tree = new BinarySearchTree();
+
+        tree.insert(47);
+        tree.insert(21);
+        tree.insert(76);
+        tree.insert(18);
+        tree.insert(27);
+        tree.insert(52);
+        tree.insert(82);
+
+        System.out.println(tree.rContains(82));
+
+
+
     }
 }
